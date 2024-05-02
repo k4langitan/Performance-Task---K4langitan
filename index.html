@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editable Table with Watermark</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeIn 5s forwards;
+    }
+
+    table {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      border-collapse: collapse;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    th {
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      background: linear-gradient(to right, #FF0000, #FF6666, #FF0000);
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    }
+
+    td {
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      background-color: rgba(245, 245, 245, 0.9);
+    }
+
+    tr:hover {
+      background-color: rgba(233, 233, 233, 0.8);
+      cursor: pointer;
+    }
+
+    .total-score {
+      font-weight: bold;
+      color: #4CAF50;
+    }
+
+    .watermark {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: fadeIn 5s forwards;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <video autoplay muted loop>
+    <source src="https://media.gettyimages.com/id/1357943832/video/national-flag-of-byzantine-palaiologos-animation-stock-video-byzantine-flag-waving-in-loop.mp4?s=mp4-640x640-gi&k=20&c=9fnODA9UzRegz9AH5TOrZpnqRVPF9xej1uNg7A_iw2Q=" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h2>Editable Performance Task</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Student #</th>
+        <th>Performance task 1</th>
+        <th>Performance task 2</th>
+        <th>Performance task 3</th>
+        <th>Total Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td contenteditable>0008236</td>
+        <td contenteditable>95</td>
+        <td contenteditable>100</td>
+        <td contenteditable>N/A</td>
+        <td class="total-score" contenteditable>195</td>
+      </tr>
+      <tr>
+        <td contenteditable>0111174</td>
+        <td contenteditable>100</td>
+        <td contenteditable>99</td>
+        <td contenteditable>98</td>
+        <td class="total-score" contenteditable>297</td>
+      </tr>
+      <tr>
+        <td contenteditable>0114323</td>
+        <td contenteditable>100</td>
+        <td contenteditable>100</td>
+        <td contenteditable>100</td>
+        <td class="total-score" contenteditable>300</td>
+      </tr>
+      <tr>
+        <td contenteditable>02223671</td>
+        <td contenteditable>N/A</td>
+        <td contenteditable>N/A</td>
+        <td contenteditable>N/A</td>
+        <td class="total-score" contenteditable>N/A</td>
+      </tr>
+      <tr>
+        <td contenteditable>0000001</td>
+        <td contenteditable>99</td>
+        <td contenteditable>94</td>
+        <td contenteditable>97</td>
+        <td class="total-score" contenteditable>290</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="watermark">by: k4l4ng!t4n</div>
+
+  <script>
+    // Add event listener to table rows
+    const tableRows = document.querySelectorAll('table tbody tr');
+    tableRows.forEach(row => {
+      row.addEventListener('click', () => {
+        // Highlight the clicked row
+        tableRows.forEach(r => r.classList.remove('active'));
+        row.classList.add('active');
+      });
+    });
+  </script>
+</body>
+
+</html>
