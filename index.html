@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perpormans Tas ni k4langitan</title>
+  <title>Perpormans Tas ni jaas</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
   <style>
     body {
@@ -13,15 +13,28 @@
       padding: 0;
       position: relative;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    video {
+    .video-container {
       position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .video-container video {
       min-width: 100%;
       min-height: 100%;
-      z-index: -1;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     h2 {
@@ -111,10 +124,12 @@
 
 <body>
 
-  <video autoplay muted loop>
-    <source src="https://media.gettyimages.com/id/1357943832/video/national-flag-of-byzantine-palaiologos-animation-stock-video-byzantine-flag-waving-in-loop.mp4?s=mp4-640x640-gi&k=20&c=9fnODA9UzRegz9AH5TOrZpnqRVPF9xej1uNg7A_iw2Q=" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="https://media.gettyimages.com/id/1357943832/video/national-flag-of-byzantine-palaiologos-animation-stock-video-byzantine-flag-waving-in-loop.mp4?s=mp4-640x640-gi&k=20&c=9fnODA9UzRegz9AH5TOrZpnqRVPF9xej1uNg7A_iw2Q=" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <h2>Editable Performance Task</h2>
 
